@@ -6,50 +6,47 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-20 bg-gradient-to-r from-purple-600 via-purple-700 to-purple-800 text-white"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 md:px-16 lg:px-24 py-20 bg-white"
     >
       {/* Left Content */}
-      <div className="space-y-6 max-w-xl text-center md:text-left">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Mokaya <span className="text-purple-300">Brian</span>
+      <div className="max-w-2xl text-center md:text-left space-y-8">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-purple-700">
+          SEO Expert
         </h1>
-        <p className="text-lg md:text-xl uppercase tracking-wide text-purple-200">
-          SEO Expert & Frontend Developer
-        </p>
-        <p className="text-base md:text-lg text-gray-200 max-w-md">
-          Helping brands grow online through SEO strategies and clean, modern web
-          experiences.
-        </p>
 
         {/* Buttons */}
-        <div className="flex flex-wrap gap-4 justify-center md:justify-start mt-6">
+        <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           <a
             href="#contact"
-            className="bg-purple-500 hover:bg-purple-400 text-white font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105"
+            className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition"
           >
             Get In Touch
           </a>
           <a
             href="/resume.pdf"
             target="_blank"
-            className="border-2 border-purple-300 text-purple-300 hover:bg-purple-300 hover:text-purple-900 font-medium py-3 px-6 rounded-full shadow-lg transition-transform transform hover:scale-105"
+            className="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-medium py-3 px-6 rounded-full shadow-md transition"
           >
-            Resume
+            Download my Resume
           </a>
         </div>
       </div>
 
-      {/* Right Image */}
-      <div className="mt-10 md:mt-0 md:ml-12">
-        {/* Uncomment when you add your image */}
+      {/* Right Side: Image + About */}
+      <div className="flex flex-col items-center text-center md:text-left max-w-md">
+        {/* Replace with actual image */}
         {/* <img
           src={profilePic}
           alt="Profile"
-          className="w-72 h-auto rounded-2xl shadow-2xl border-4 border-purple-300"
+          className="w-80 h-auto rounded-lg"
         /> */}
-        <div className="w-72 h-72 rounded-2xl bg-purple-400 bg-opacity-20 border-2 border-purple-300 flex items-center justify-center shadow-2xl">
-          <span className="text-purple-200 italic">Profile Image</span>
+        <div className="w-72 h-72 md:w-80 md:h-80 bg-purple-100 flex items-center justify-center rounded-lg mb-6">
+          <span className="text-purple-400 italic">Profile Image</span>
         </div>
+
+        <p className="text-base md:text-lg text-purple-600">
+          I help website rank on google with SEO stategies
+        </p>
       </div>
     </section>
   );

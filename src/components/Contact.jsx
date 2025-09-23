@@ -1,107 +1,113 @@
-// src/components/Contact.jsx
-import React, { useState } from 'react';
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { FaEnvelope, FaPhone, FaLinkedin } from "react-icons/fa";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    address: '',
-    message: ''
-  });
-  const [submitted, setSubmitted] = useState(false);
+export default function Contact() {
+  const form = useRef();
 
-  const handleChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    // You could integrate with an API or email service here
-    console.log("Submitting contact form:", formData);
-    setSubmitted(true);
-    // Reset form or leave as is
+
+    emailjs
+      .sendForm(
+        "your_service_id", // replace with EmailJS Service ID
+        "your_template_id", // replace with EmailJS Template ID
+        form.current,
+        "your_public_key" // replace with EmailJS Public Key
+      )
+      .then(
+        (result) => {
+          console.log("Message Sent ✅", result.text);
+          e.target.reset();
+        },
+        (error) => {
+          console.log("Message Failed ❌", error.text);
+        }
+      );
   };
 
   return (
-    <section id="contact" className="px-6 md:px-12 py-12 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-semibold text-accent mb-6 text-center">Get In Touch</h2>
-      {!submitted ? (
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="text"
-              name="firstName"
-              placeholder="First Name"
-              value={formData.firstName}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-            />
-            <input
-              type="text"
-              name="lastName"
-              placeholder="Last Name"
-              value={formData.lastName}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-            />
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone"
-              value={formData.phone}
-              onChange={handleChange}
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-            />
-          </div>
+    <section
+      id="contact"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-16 bg-white text-purple-800"
+    >
+      {/* Section Title */}
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
+        Get in Touch
+      </h2>
+
+      {/* Contact Info */}
+      <div className="flex flex-col sm:flex-row gap-8 mb-12 text-purple-700">
+        <div className="flex items-center gap-3">
+          <FaEnvelope className="text-purple-600 text-2xl" />
+          <span>youremail@example.com</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <FaPhone className="text-purple-600 text-2xl" />
+          <span>+254 700 000000</span>
+        </div>
+        <div className="flex items-center gap-3">
+          <FaLinkedin className="text-purple-600 text-2xl" />
+          <a
+            href="https://linkedin.com/in/yourprofile"
+            className="hover:underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      {/* Contact Form */}
+      <form
+        ref={form}
+        onSubmit={sendEmail}
+        className="w-full max-w-lg bg-purple-50 rounded-2xl shadow-lg p-8 border border-purple-200"
+      >
+        <div className="mb-5">
+          <label className="block mb-2 text-purple-800 font-semibold">
+            Name
+          </label>
           <input
             type="text"
-            name="address"
-            placeholder="Address"
-            value={formData.address}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
+            name="user_name"
+            className="w-full px-4 py-2 rounded-lg border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            required
           />
+        </div>
+
+        <div className="mb-5">
+          <label className="block mb-2 text-purple-800 font-semibold">
+            Email
+          </label>
+          <input
+            type="email"
+            name="user_email"
+            className="w-full px-4 py-2 rounded-lg border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            required
+          />
+        </div>
+
+        <div className="mb-5">
+          <label className="block mb-2 text-purple-800 font-semibold">
+            Message
+          </label>
           <textarea
             name="message"
-            placeholder="Type your message here"
-            value={formData.message}
-            onChange={handleChange}
+            rows="5"
+            className="w-full px-4 py-2 rounded-lg border border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500"
             required
-            rows={4}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-accent"
-          ></textarea>
-          <button
-            type="submit"
-            className="bg-accent text-white py-2 px-6 rounded-md hover:bg-accent-dark transition"
-          >
-            Submit
-          </button>
-        </form>
-      ) : (
-        <div className="text-center">
-          <p className="text-lg font-medium text-text">Thanks for submitting!</p>
+          />
         </div>
-      )}
+
+        <button
+          type="submit"
+          className="w-full py-3 bg-purple-700 text-white rounded-lg font-semibold hover:bg-purple-800 transition"
+        >
+          Send Message
+        </button>
+      </form>
     </section>
   );
-};
-
-export default Contact;
+}

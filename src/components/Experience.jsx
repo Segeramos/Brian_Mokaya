@@ -26,7 +26,7 @@ const Experience = () => {
       className="px-6 md:px-12 py-20 max-w-5xl mx-auto relative"
     >
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-extrabold text-purple-700 mb-12 text-center md:text-left relative">
+      <h2 className="text-2xl md:text-2xl font-extrabold text-purple-700 mb-12 text-center md:text-left relative">
         Work Experience
         <span className="block w-16 h-1 bg-purple-500 mt-3 mx-auto md:mx-0 rounded-full"></span>
       </h2>

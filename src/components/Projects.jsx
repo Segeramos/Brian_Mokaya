@@ -1,54 +1,26 @@
-import { motion } from "framer-motion";
 import React from "react";
-
-
-// ✅ Animation Variants
-const cardVariants = {
-  hidden: { opacity: 0, scale: 0.92, y: 70 },
-  visible: (i) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      delay: i * 0.13,
-      type: "spring",
-      stiffness: 280,
-      damping: 18,
-    },
-  }),
-};
 
 // ✅ Main Component
 export default function Projects() {
   return (
-    <motion.div
-      className="min-h-screen flex flex-col "
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <section className="min-h-screen flex flex-col px-8 md:px-16 lg:px-24 py-">
       {/* ✅ Section Heading */}
-      <motion.h2
-        className="text-3xl sm:text-4xl font-bold text-center mb-10 tracking-tight text-purple-800"
-        initial={{ opacity: 0, y: -40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
-      >
+      <h2 className="text-2xl md:text-2xl font-extrabold text-purple-700 mb-12 text-center md:text-left relative">
         SEO Projects
-      </motion.h2>
+      </h2>
 
       {/* ✅ SEO Projects Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {seoProjects.map((proj, i) => (
-          <ProjectCard proj={proj} i={i} key={i} />
+          <ProjectCard proj={proj} key={i} />
         ))}
       </div>
-    </motion.div>
+    </section>
   );
 }
 
 // ✅ Card Component
-function ProjectCard({ proj, i }) {
+function ProjectCard({ proj }) {
   const Stat = ({ label, value, change, extra }) => (
     <div>
       <p className="text-gray-400">{label}</p>
@@ -69,36 +41,24 @@ function ProjectCard({ proj, i }) {
   );
 
   return (
-    <motion.div
-      className="rounded-2xl bg-white/5 shadow-xl flex flex-col overflow-hidden border border-white/10 transition-all duration-300"
-      variants={cardVariants}
-      initial="hidden"
-      animate="visible"
-      custom={i}
-      whileHover={{
-        scale: 1.045,
-        boxShadow: "0 8px 40px 0 #ea580c22",
-        transition: { type: "spring", stiffness: 340, damping: 15 },
-      }}
-    >
-      <div className="h-52 bg-black flex items-center justify-center overflow-hidden">
-        <motion.img
+    <div className="rounded-2xl bg-white/5 shadow-xl flex flex-col overflow-hidden border border-white/10">
+      {/* Image */}
+      <div className="h-56 bg-black flex items-center justify-center overflow-hidden">
+        <img
           src={proj.image}
           alt={proj.title}
-          className="object-cover h-full w-full transition-transform duration-300"
-          whileHover={{ scale: 1.07 }}
+          className="object-cover h-full w-full"
         />
       </div>
 
-      <div className="flex flex-col flex-1 px-6 py-5">
-        <h3 className="text-xl font-bold text-orange-100 mb-2">
-          {proj.title}
-        </h3>
-        <p className="text-sm text-gray-400 mb-3">{proj.description}</p>
+      {/* Card Content */}
+      <div className="flex flex-col flex-1 px-6 py-6">
+        <h3 className="text-xl font-bold text-orange-100 mb-3">{proj.title}</h3>
+        <p className="text-sm text-gray-400 mb-4">{proj.description}</p>
 
         {/* ✅ Render stats only if they exist */}
         {proj.stats && (
-          <div className="grid grid-cols-2 gap-4 text-white text-sm mb-4">
+          <div className="grid grid-cols-2 gap-4 text-white text-sm">
             {proj.stats.visits && (
               <Stat
                 label="Visits"
@@ -148,10 +108,8 @@ function ProjectCard({ proj, i }) {
             )}
           </div>
         )}
-
-        
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -340,4 +298,3 @@ const seoProjects = [
 
 
 ];
-

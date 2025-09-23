@@ -8,8 +8,8 @@ const Navbar = () => {
     <nav className="fixed w-full top-0 left-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between py-4">
         {/* Logo / Name */}
-        <a href="#home" className="text-2xl font-extrabold text-purple-700">
-          Mokaya<span className="text-purple-500">Brian</span>
+        <a href="#home" className="text-3xl font-extrabold text-purple-700">
+          Portfolio
         </a>
 
         {/* Desktop Menu */}
