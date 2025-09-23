@@ -53,8 +53,8 @@ function ProjectCard({ proj }) {
 
       {/* Card Content */}
       <div className="flex flex-col flex-1 px-6 py-6">
-        <h3 className="text-xl font-bold text-orange-100 mb-3">{proj.title}</h3>
-        <p className="text-sm text-gray-400 mb-4">{proj.description}</p>
+        <h3 className="text-xl font-bold text-purple-800 mb-3">{proj.title}</h3>
+        <p className="text-sm text-purple-400 mb-4">{proj.description}</p>
 
         {/* ✅ Render stats only if they exist */}
         {proj.stats && (
