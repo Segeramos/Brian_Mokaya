@@ -294,7 +294,25 @@ const seoProjects = [
   image: "/NC.png", // Update with the actual image path
   link: "https://nairobicomputerstore.com/",
   
-}
-
+},
+{
+    title: "Nairobi Phones Technologies",
+    description: "On-page and off-page SEO optimization for websites.",
+    image: "/NPT.png",
+    link: "https://nairobiphonestech.com/",
+    siteName: "nairobicamerahouse.co.ke",
+    stats: {
+      visits: {
+        value: "5.5K",
+        change: "+95.24%",
+        devices: { desktop: "40.37%", mobile: "59.63%" }
+      },
+      uniqueVisitors: { value: "4.9K", change: "+109.43%" },
+      conversion: { value: "1.07%", change: "+100%" },
+      pagesPerVisit: { value: "1.7", change: "-27.08%" },
+      avgVisitDuration: { value: "05:39", change: "-41.15%" },
+      bounceRate: { value: "56.49%", change: "-9.19%" }
+    }
+  },
 
 ];

@@ -6,11 +6,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 md:px-16 lg:px-24 py-20 bg-white"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-12 px-8 md:px-16 lg:px-24 py-20 bg-yellow-500"
     >
       {/* Left Content */}
       <div className="max-w-2xl text-center md:text-left space-y-8">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-purple-700">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-">
           SEO Expert
         </h1>
 
@@ -18,14 +18,14 @@ const Hero = () => {
         <div className="flex flex-wrap gap-4 justify-center md:justify-start">
           <a
             href="#contact"
-            className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition"
+            className="bg-black hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition"
           >
             Get In Touch
           </a>
           <a
             href="/resume.pdf"
             target="_blank"
-            className="border-2 border-purple-600 text-purple-600 hover:bg-purple-600 hover:text-white font-medium py-3 px-6 rounded-full shadow-md transition"
+            className="border-2 border-black text- hover:bg-purple-600 hover:text-black font-medium py-3 px-6 rounded-full shadow-md transition"
           >
             Download my Resume
           </a>
@@ -44,7 +44,7 @@ const Hero = () => {
           <span className="text-purple-400 italic">Profile Image</span>
         </div>
 
-        <p className="text-base md:text-lg text-purple-600">
+        <p className="text-base md:text-lg text-black">
           I help website rank on google with SEO stategies
         </p>
       </div>
