@@ -39,19 +39,26 @@ const Navbar = () => {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-gray-700 focus:outline-none"
+          className="md:hidden text-gray-700 focus:outline-none text-2xl"
         >
           {isOpen ? "✖" : "☰"}
         </button>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden bg-white shadow-md py-4 px-6 space-y-4 text-gray-700 font-medium">
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${
+          isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <ul
+          className="bg-[url('/BG5.png')] bg-cover bg-center bg-no-repeat shadow-md 
+                     py-6 px-6 space-y-6 text-white font-medium text-center"
+        >
           <li>
             <a
               href="#home"
-              className="block hover:text-purple-600 transition"
+              className="block hover:text-purple-300 transition"
               onClick={() => setIsOpen(false)}
             >
               Home
@@ -60,7 +67,7 @@ const Navbar = () => {
           <li>
             <a
               href="#about"
-              className="block hover:text-purple-600 transition"
+              className="block hover:text-purple-300 transition"
               onClick={() => setIsOpen(false)}
             >
               About
@@ -69,7 +76,7 @@ const Navbar = () => {
           <li>
             <a
               href="#experience"
-              className="block hover:text-purple-600 transition"
+              className="block hover:text-purple-300 transition"
               onClick={() => setIsOpen(false)}
             >
               Experience
@@ -78,14 +85,14 @@ const Navbar = () => {
           <li>
             <a
               href="#contact"
-              className="block hover:text-purple-600 transition"
+              className="block hover:text-purple-300 transition"
               onClick={() => setIsOpen(false)}
             >
               Contact
             </a>
           </li>
         </ul>
-      )}
+      </div>
     </nav>
   );
 };
