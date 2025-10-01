@@ -23,30 +23,40 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="px-6 md:px-12 py-20 max-w-5xl mx-auto relative"
+      className="relative w-full min-h-screen bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/BG5.png')" }} // inline fallback
     >
-      {/* Heading */}
-      <h2 className="text-2xl md:text-2xl font-extrabold text-purple-700 mb-12 text-center md:text-left relative">
-        Work Experience
-        <span className="block w-16 h-1 bg-purple-500 mt-3 mx-auto md:mx-0 rounded-full"></span>
-      </h2>
+      {/* Full-section overlay (fades the background) */}
+      <div
+        className="absolute inset-0 bg-black/60"
+        aria-hidden="true"
+      ></div>
 
-      {/* Timeline / Cards */}
-      <div className="relative border-l-4 border-purple-400 pl-6 space-y-10">
-        {experiences.map((exp, idx) => (
-          <div
-            key={idx}
-            className="bg-white border border-purple-200 rounded-xl p-6 shadow-md hover:shadow-xl transition"
-          >
-            <h3 className="text-xl md:text-2xl font-bold text-purple-700">
-              {exp.title}
-            </h3>
-            <span className="block text-sm text-gray-600 mb-3">
-              {exp.company} · {exp.duration}
-            </span>
-            <p className="text-gray-700 leading-relaxed">{exp.description}</p>
-          </div>
-        ))}
+      {/* Content wrapper sits above the overlay */}
+      <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-12 py-20">
+        {/* Heading */}
+        <h2 className="text-3xl font-extrabold text-white mb-12 text-center">
+          Work Experience
+          <span className="block w-20 h-1 bg-purple-500 mt-3 mx-auto rounded-full"></span>
+        </h2>
+
+        {/* Timeline / Cards */}
+        <div className="relative border-l-4 border-purple-600 pl-6 space-y-10">
+          {experiences.map((exp, idx) => (
+            <div
+              key={idx}
+              className="bg-white border border-purple-200 rounded-xl p-6 shadow-md hover:shadow-xl transition"
+            >
+              <h3 className="text-xl md:text-2xl font-bold text-purple-700">
+                {exp.title}
+              </h3>
+              <span className="block text-sm text-gray-600 mb-3">
+                {exp.company} · {exp.duration}
+              </span>
+              <p className="text-gray-700 leading-relaxed">{exp.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
