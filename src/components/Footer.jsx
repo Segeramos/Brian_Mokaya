@@ -16,14 +16,7 @@ const Footer = () => {
           <SocialIcon url="mailto:example@email.com" fgColor="#fff" bgColor="transparent" />
         </div>
 
-        {/* Footer Nav */}
-        <nav className="flex flex-col md:flex-row gap-4 text-center md:text-left">
-          <a href="#home" className="hover:text-purple-400 transition">Home</a>
-          <a href="#news" className="hover:text-purple-400 transition">News</a>
-          <a href="#about" className="hover:text-purple-400 transition">About</a>
-          <a href="#contact" className="hover:text-purple-400 transition">Contact</a>
-          <a href="#team" className="hover:text-purple-400 transition">Our Team</a>
-        </nav>
+        
       </div>
 
       <p className="mt-8 text-center text-gray-400 text-sm">
